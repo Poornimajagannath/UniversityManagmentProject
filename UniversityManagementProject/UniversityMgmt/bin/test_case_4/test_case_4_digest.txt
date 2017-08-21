@@ -1,0 +1,11 @@
+mini-moss:Desktop markmoss$ java -jar refimp_assign3.jar
+50
+100
+66
+40
+14
+30
+7
+12
+19
+11
