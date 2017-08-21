@@ -1,0 +1,193 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    |     
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    |     
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
+    meta(name='description', content='Place for admins to add the instructors')
+    |     
+    meta(name='author', content='')
+    |     
+    link(rel='icon', href='../../favicon.ico')
+    |     
+    title Instructor Assignment Portal
+    // Latest compiled and minified CSS
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
+    // Optional theme
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css', integrity='sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp', crossorigin='anonymous')
+    // Custom styles for this template
+    link(href='stylesheets/starter-template.css', rel='stylesheet')
+    // HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js')
+      |       
+      script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
+  |   
+  body
+    nav.navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+            span.sr-only Toggle navigation
+            |             
+            span.icon-bar
+            |             
+            span.icon-bar
+            |             
+            span.icon-bar
+          |           
+          a.navbar-brand(href='#')
+        |         
+        #navbar.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a(href='/') Home
+            |             
+            li
+              a(href='/apriori') Analyse
+              
+            |             
+            li
+              a(href='/instructorSelection') Instructor Selection Display
+              
+            |             
+            li.active
+              a(href='/statistics') Statistics Display
+            |             
+            li
+              a(href='/records') Records
+        // /.nav-collapse
+    
+    .container     
+      .page-header
+        h1 Statistics
+        #topDiv.container
+      
+      //
+        <div class="starter-template">
+        <label for="submit"></label>
+        <button  onclick="submit()" class="btn btn-default">
+        Processed Requests
+        </button>
+        </div>
+      h3 Processed Requests
+
+      |      
+      |                    
+      table#processedrecords.table.table-bordered
+        thead
+          tr
+          tr
+            th Student Id
+            |                             
+            th Class Id
+            |                             
+            th Status
+            |                             
+            th StatusMessage
+        |                         
+        tbody
+          //
+            <tr>
+            <th scope="row">1</th>
+            <td>23</td>
+            <td>ML</td>
+            <td>100</td>
+            </tr>
+      |               
+      h3 Semester Current Statistics
+      |                 
+      |                    
+      table#current.table.table-bordered
+        thead
+          tr
+            th Granted
+            |                             
+            th Failed
+            |                             
+            th Wait
+            |                             
+            th Total
+        |                         
+        tbody
+          //
+            <tr>
+            <th scope="row">1</th>
+            <td>23</td>
+            <td>ML</td>
+            <td>100</td>
+            </tr>
+      |                   
+      h3 History Statistics 
+      |                 
+      |                      
+      table#history.table.table-bordered
+        thead
+          tr
+            th Granted
+            |                             
+            th Failed
+            |                             
+            th Wait
+            |                             
+            th Total
+        |                           
+        tbody
+          //
+            <tr>
+            <th scope="row">1</th>
+            <td>42</td>
+            <td>CV</td>
+            <td>10</td>
+            </tr>
+      |                       
+      h3 Wait Listed Requests 
+      |                       
+      table#waitlisted.table.table-bordered
+        thead
+          tr
+            th Student Id
+            |                             
+            th Class Id
+            |                             
+            th Status
+            |                             
+            th StatusMessage
+        |                           
+        tbody
+          //
+            <tr>
+            <th scope="row">1</th>
+            <td>42</td>
+            <td>CV</td>
+            <td>10</td>
+            </tr>
+      |         
+      button.btn.btn-default(type='next',onclick="location.href='/records'") Next         
+
+      //.starter-template
+        //button.btn.btn-default(type='done', onclick='gotoHomePage()')
+          | Done
+    // /container
+    //
+      Bootstrap core JavaScript
+      ==================================================
+    // Placed at the end of the document so the pages load faster
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+    |     
+    script.
+      window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\\/script>')
+    // Latest compiled and minified JavaScript
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa', crossorigin='anonymous')
+    |     
+    script(src='javascripts/common.js')
+    |     
+    script(type='text/javascript').
+      loadProcessedRequests();
+      loadStatistics();
+      loadHistory();
+      loadWaitlist();
+      loadcurrentsemester();
